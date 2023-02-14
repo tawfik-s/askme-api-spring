@@ -13,11 +13,11 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "recipient_id", nullable = false)
     private User recipient;
 
