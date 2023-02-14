@@ -13,6 +13,5 @@ import java.util.List;
 public interface QuestionRepository extends JpaRepository<Question,Long> {
     List<Question> findByRecipient(User recipient);
 
-    @Query("select question from Question question where question.sender.id =:id")
-    List<Question> findBySender(@Param("id") Long userId);
+    List<Question> findBySender(User sender);
 }
