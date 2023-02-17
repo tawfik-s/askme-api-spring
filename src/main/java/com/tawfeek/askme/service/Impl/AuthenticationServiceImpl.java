@@ -24,8 +24,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
   private UserRepository userRepository;
   @Autowired
   private UserMapper userMapper;
-  private final PasswordEncoder passwordEncoder;
-  private final JwtService jwtService;
+
+  @Autowired
+  private  JwtService jwtService;
+
   private final AuthenticationManager authenticationManager;
 
 
@@ -33,8 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
   public AuthenticationResponse register(UserRequestDTO request) {
     var user = userMapper.toEntity(request);
     userRepository.save(user);
-
-    var jwtToken = jwtService.generateToken((UserDetails) user);
+    var jwtToken = jwtService.generateToken(user);
     return AuthenticationResponse.builder()
         .token(jwtToken)
         .build();
@@ -49,7 +50,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     );
     var user = userRepository.findByEmail(request.getEmail())
         .orElseThrow();
-    var jwtToken = jwtService.generateToken((UserDetails) user);
+    var jwtToken = jwtService.generateToken(user);
     return AuthenticationResponse.builder()
         .token(jwtToken)
         .build();

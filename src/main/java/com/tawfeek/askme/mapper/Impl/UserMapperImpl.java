@@ -3,6 +3,7 @@ package com.tawfeek.askme.mapper.Impl;
 
 import com.tawfeek.askme.entity.User;
 import com.tawfeek.askme.mapper.UserMapper;
+import com.tawfeek.askme.model.Role;
 import com.tawfeek.askme.model.user.UserRequestDTO;
 import com.tawfeek.askme.model.user.UserResponseDTO;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class UserMapperImpl implements UserMapper {
         newUser.setUserName(userRequestDTO.getUserName());
         newUser.setPassword(userRequestDTO.getPassword());
         newUser.setEmail(userRequestDTO.getEmail());
+        newUser.setRole(Role.USER);
         return newUser;
     }
 
@@ -23,7 +25,7 @@ public class UserMapperImpl implements UserMapper {
     public  UserResponseDTO toDTO(User user) {
         UserResponseDTO newUserResponseDTO = new UserResponseDTO();
         newUserResponseDTO.setId(user.getId());
-        newUserResponseDTO.setUserName(user.getUserName());
+        newUserResponseDTO.setUserName(user.getUsername());
         newUserResponseDTO.setEmail(user.getEmail());
         return newUserResponseDTO;
     }
