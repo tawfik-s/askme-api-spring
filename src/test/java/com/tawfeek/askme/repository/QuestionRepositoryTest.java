@@ -66,7 +66,7 @@ class QuestionRepositoryTest {
 
     @Test
     void findBySender() {
-        List<Question> res = questionRepository.findBySender(userSend.getId());
+        List<Question> res = questionRepository.findBySender(userSend);
         assertThat(res.size()).isEqualTo(1);
         assertThat(res.get(0).getRecipient()).isEqualTo(userRec);
     }

@@ -30,6 +30,6 @@ class UserRepositoryTest {
         user.setUserName("tawfeek");
         userRepository.save(user);
         User result = userRepository.findByUserName("tawfeek");
-        assertThat(Objects.equals(result.getEmail(), "t.shalash1@gmail.com")&&result.getUserName().equals("tawfeek"));
+        assertThat(Objects.equals(result.getEmail(), "t.shalash1@gmail.com")&&result.getUsername().equals("tawfeek"));
     }
 }
