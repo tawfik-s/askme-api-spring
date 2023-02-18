@@ -1,18 +1,24 @@
 
-
 #jwt values
-jwt_secret=REPLACE_THIS_WITH_YOUR_SECRET
+jwt_secret: REPLACE_THIS_WITH_YOUR_SECRET
 
 #postgres config
-spring.datasource.url=jdbc:postgresql://localhost:5432/askme
-spring.datasource.username=postgres
-spring.datasource.password=admin
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/askme
+    username: postgres
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 # JPA settings
 #spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
 #spring.jpa.hibernate.use-new-id-generator-mappings=false
-spring.jpa.hibernate.ddl-auto=create
-spring.jpa.show-sql=true
 #spring.jpa.properties.hibernate.format_sql=true
 #spring.jpa.properties.hibernate.connection.characterEncoding=utf-8
 #spring.jpa.properties.hibernate.connection.CharSet=utf-8
