@@ -9,10 +9,8 @@ public interface UserService {
 
     public UserResponseDTO getUser(Long id);
 
-    public UserResponseDTO AddUser(UserRequestDTO userRequestDTO);
-
     public List<UserResponseDTO> findUsersByName(String name);
 
-    public UserRequestDTO findUserByEmail(String email);
+    public UserResponseDTO findUserByEmail(String email);
 
 }
