@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.List;
 import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -29,7 +30,8 @@ class UserRepositoryTest {
         user.setPassword("1234");
         user.setUserName("tawfeek");
         userRepository.save(user);
-        User result = userRepository.findByUserName("tawfeek");
-        assertThat(Objects.equals(result.getEmail(), "t.shalash1@gmail.com")&&result.getUsername().equals("tawfeek"));
+        List<User> result = userRepository.findByUserName("tawfeek").get();
+        assertThat(Objects.equals(result.get(0).getEmail(), "t.shalash1@gmail.com")&&result.get(0).getUsername().equals("tawfeek"));
+        assertThat(result.size()).isEqualTo(1);
     }
 }
