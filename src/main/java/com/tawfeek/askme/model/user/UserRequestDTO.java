@@ -22,7 +22,6 @@ public class UserRequestDTO {
     private String password;
 
 
-    //TODO implement a validator to check if email valid or not
     @NotNull
     @Size(min=5,max=32,
             message = "password size should be between" +
