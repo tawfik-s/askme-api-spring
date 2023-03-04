@@ -6,7 +6,7 @@ jwt_secret: REPLACE_THIS_WITH_YOUR_SECRET
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/askme
-    username: postgres
+    username: admin
     password: admin
   jpa:
     hibernate:

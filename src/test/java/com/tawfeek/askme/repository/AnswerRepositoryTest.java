@@ -70,13 +70,15 @@ class AnswerRepositoryTest {
 
     @Test
     void findByQuestion() {
-        List<Answer> answers = answerRepository.findByQuestion(question);
+        List<Answer> answers = answerRepository.findByQuestion(question)
+                .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }
 
     @Test
     void findByRecipient() {
-        List<Answer> answers = answerRepository.findByRecipient(userRec);
+        List<Answer> answers = answerRepository.findByRecipient(userRec)
+                .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }
 }
