@@ -8,10 +8,19 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question,Long> {
-    List<Question> findByRecipient(User recipient);
+    Optional<List<Question>> findByRecipient(User recipient);
 
-    List<Question> findBySender(User sender);
+    Optional<List<Question>> findBySender(User sender);
+
+    @Query("SELECT q FROM Question q " +
+            "WHERE q.recipient.id = :userId " +
+            "AND" +
+            " q.id NOT IN " +
+            "(SELECT a.question.id FROM Answer a " +
+            "WHERE a.recipient.id = :userId)")
+    Optional<List<Question>> findUnAnsweredQuestions(@Param("userId") Long userId);
 }
