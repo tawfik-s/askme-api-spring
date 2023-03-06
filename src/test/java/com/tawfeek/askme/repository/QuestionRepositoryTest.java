@@ -70,4 +70,11 @@ class QuestionRepositoryTest {
         assertThat(res.size()).isEqualTo(1);
         assertThat(res.get(0).getRecipient()).isEqualTo(userRec);
     }
+
+    @Test
+    void findUnAnsweredQuestion(){
+        List<Question> res = questionRepository.findUnAnsweredQuestions(userRec.getId()).get();
+        assertThat(res.size()).isEqualTo(1);
+        assertThat(res.get(0).getRecipient()).isEqualTo(userRec);
+    }
 }

@@ -12,7 +12,7 @@ public interface AnswerService {
 
     List<QuestionAndAnswerDTO> getMyAnsweredQuestions();
 
-    AnswerResponseDTO AnswerQuestion(AnswerRequestDTO AnswerRequest);
+    AnswerResponseDTO AnswerQuestion(AnswerRequestDTO answerRequest);
 
-    AnswerResponseDTO DeleteQuestionAnswer(Long AnswerId);
+    AnswerResponseDTO DeleteQuestionAnswer(Long answerId);
 }
