@@ -81,4 +81,11 @@ class AnswerRepositoryTest {
                 .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }
+
+    @Test
+    void getUserAnsweredQuestions(){
+        List<Answer> answers = answerRepository.getUserAnsweredQuestions(userRec.getId())
+                .orElseThrow();
+        assertThat(answers.size()).isEqualTo(1);
+    }
 }
