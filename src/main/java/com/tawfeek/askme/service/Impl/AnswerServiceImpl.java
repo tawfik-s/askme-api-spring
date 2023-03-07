@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class AnswerServiceImpl implements AnswerService {
@@ -86,7 +85,7 @@ public class AnswerServiceImpl implements AnswerService {
         User currentUser=userRepository.findByEmail(email)
                 .orElseThrow();
         Answer answer=answerRepository.findById(answerId).orElseThrow();
-        if(answer.getRecipient().getId()!= currentUser.getId())
+        if(answer.getAnswerOwner().getId()!= currentUser.getId())
             throw new RecordNotFoundException("you don't own this message");
 
         answerRepository.delete(answer);

@@ -114,7 +114,7 @@ class AnswerServiceImplTest {
         answer.setId(1L);
         answer.setAnswerText(answerRequest.getAnswerText());
         answer.setQuestion(question);
-        answer.setRecipient(user);
+        answer.setAnswerOwner(user);
 
         when(questionRepository.findById(answerRequest.getQuestionId())).thenReturn(Optional.of(question));
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
@@ -141,7 +141,7 @@ class AnswerServiceImplTest {
         answer.setId(answerId);
         User user = new User();
         user.setId(1L);
-        answer.setRecipient(user);
+        answer.setAnswerOwner(user);
 
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
         when(answerRepository.findById(answerId)).thenReturn(Optional.of(answer));
@@ -166,7 +166,7 @@ class AnswerServiceImplTest {
         answer.setId(answerId);
         User user = new User();
         user.setId(6L);
-        answer.setRecipient(user);
+        answer.setAnswerOwner(user);
         var currentUser =
                 new User(1L, "tawfeek", "123456"
                         , Role.USER, "test@test.com");
