@@ -3,13 +3,11 @@ package com.tawfeek.askme.repository;
 import com.tawfeek.askme.entity.Answer;
 import com.tawfeek.askme.entity.Question;
 import com.tawfeek.askme.entity.User;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 
@@ -62,7 +60,7 @@ class AnswerRepositoryTest {
         questionRepository.save(question);
         answer = new Answer();
         answer.setQuestion(question);
-        answer.setRecipient(userRec);
+        answer.setAnswerOwner(userRec);
         answer.setAnswerText("twenty one years old");
         answer.setCreatedAt(LocalDateTime.now());
         answerRepository.save(answer);

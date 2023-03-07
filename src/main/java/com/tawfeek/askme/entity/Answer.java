@@ -19,8 +19,8 @@ public class Answer {
     private Question question;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "recipient_id", nullable = false)
-    private User recipient;
+    @JoinColumn(name = "answer_owner_id", nullable = false)
+    private User answerOwner;
 
     @Column(nullable = false)
     private String answerText;

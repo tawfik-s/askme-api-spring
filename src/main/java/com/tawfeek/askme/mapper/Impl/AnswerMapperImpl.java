@@ -25,7 +25,7 @@ public class AnswerMapperImpl implements AnswerMapper {
     public Answer toEntity(AnswerRequestDTO answerRequestDTO, Question question, User recipient) {
         Answer answer = new Answer();
         answer.setQuestion(question);
-        answer.setRecipient(recipient);
+        answer.setAnswerOwner(recipient);
         answer.setAnswerText(answerRequestDTO.getAnswerText());
         answer.setCreatedAt(LocalDateTime.now());
         return answer;
@@ -35,7 +35,7 @@ public class AnswerMapperImpl implements AnswerMapper {
     public AnswerResponseDTO toDTO(Answer answer) {
         return new AnswerResponseDTO(answer.getId(),
                         answer.getAnswerText(),
-                        userMapper.toDTO(answer.getRecipient()),
+                        userMapper.toDTO(answer.getAnswerOwner()),
                         questionMapper.toDTO(answer.getQuestion()));
     }
 }
