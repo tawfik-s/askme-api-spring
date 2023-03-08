@@ -14,9 +14,9 @@ import java.util.Optional;
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer,Long> {
     Optional<List<Answer>> findByQuestion(Question question);
-    Optional<List<Answer>> findByRecipient(User recipient);
+    Optional<List<Answer>> findByAnswerOwner(User answerOwner);
 
-    @Query("SELECT a FROM Answer a WHERE a.recipient.id = :userId")
+    @Query("SELECT a FROM Answer a WHERE a.answerOwner.id = :userId")
     Optional<List<Answer>> getUserAnsweredQuestions(@Param("userId") long userId);
 
 

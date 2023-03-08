@@ -22,10 +22,10 @@ public class AnswerMapperImpl implements AnswerMapper {
     private QuestionMapper questionMapper;
 
     @Override
-    public Answer toEntity(AnswerRequestDTO answerRequestDTO, Question question, User recipient) {
+    public Answer toEntity(AnswerRequestDTO answerRequestDTO, Question question, User answerOwner) {
         Answer answer = new Answer();
         answer.setQuestion(question);
-        answer.setAnswerOwner(recipient);
+        answer.setAnswerOwner(answerOwner);
         answer.setAnswerText(answerRequestDTO.getAnswerText());
         answer.setCreatedAt(LocalDateTime.now());
         return answer;
