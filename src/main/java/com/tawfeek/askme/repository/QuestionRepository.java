@@ -21,6 +21,6 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
             "AND" +
             " q.id NOT IN " +
             "(SELECT a.question.id FROM Answer a " +
-            "WHERE a.recipient.id = :userId)")
+            "WHERE a.answerOwner.id = :userId)")
     Optional<List<Question>> findUnAnsweredQuestions(@Param("userId") Long userId);
 }

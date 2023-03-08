@@ -3,6 +3,8 @@ package com.tawfeek.askme.repository;
 import com.tawfeek.askme.entity.Answer;
 import com.tawfeek.askme.entity.Question;
 import com.tawfeek.askme.entity.User;
+import com.tawfeek.askme.model.Role;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,28 +43,13 @@ class AnswerRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        userSend = new User();
-        userSend.setPassword("1234");
-        userSend.setUserName("tawfeek");
-        userSend.setEmail("t.shalash1@gmail.com");
+        userSend = new User("mohammed","pass2",Role.USER,"m.shalash1@gmail.com");
         userRepository.save(userSend);
-        userRec = new User();
-        userRec.setEmail("m.shalash2@gmail.com");
-        userRec.setUserName("mohamed");
-        userRec.setPassword("12345");
+        userRec = new User("tawfeek","pass1",Role.USER,"t.shalash1@gmail.com");
         userRepository.save(userRec);
-        question = new Question();
-        question.setSender(userSend);
-        question.setRecipient(userRec);
-        question.setQuestionText("how old are you");
-        question.setAnonymity(true);
-        question.setCreatedAt(LocalDateTime.now());
+        question = new Question(null,userSend,userRec,"how are you ",false,LocalDateTime.now());
         questionRepository.save(question);
-        answer = new Answer();
-        answer.setQuestion(question);
-        answer.setAnswerOwner(userRec);
-        answer.setAnswerText("twenty one years old");
-        answer.setCreatedAt(LocalDateTime.now());
+        answer = new Answer(null,question,userRec,"find ",LocalDateTime.now());
         answerRepository.save(answer);
     }
 
@@ -74,8 +61,8 @@ class AnswerRepositoryTest {
     }
 
     @Test
-    void findByRecipient() {
-        List<Answer> answers = answerRepository.findByRecipient(userRec)
+    void findByAnswerOwner() {
+        List<Answer> answers = answerRepository.findByAnswerOwner(userRec)
                 .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }

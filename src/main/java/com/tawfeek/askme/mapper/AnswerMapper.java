@@ -9,7 +9,7 @@ import com.tawfeek.askme.model.question.QuestionRequestDTO;
 
 public interface AnswerMapper {
 
-    public Answer toEntity(AnswerRequestDTO answerRequestDTO, Question question, User recipient);
+    public Answer toEntity(AnswerRequestDTO answerRequestDTO, Question question, User answerOwner);
 
     public AnswerResponseDTO toDTO(Answer answer);
 }

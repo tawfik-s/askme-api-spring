@@ -1,14 +1,25 @@
 
+#jwt values
+jwt_secret: REPLACE_THIS_WITH_YOUR_SECRET
 
-# database configuration
+#postgres config
 spring:
   datasource:
-    url: jdbc:h2://mem:db;DB_CLOSE_DELAY=-1
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/askme
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
-
-# security config
-
-jwt_secret: REPLACE_THIS_WITH_YOUR_SECRET
+# JPA settings
+#spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
+#spring.jpa.hibernate.use-new-id-generator-mappings=false
+#spring.jpa.properties.hibernate.format_sql=true
+#spring.jpa.properties.hibernate.connection.characterEncoding=utf-8
+#spring.jpa.properties.hibernate.connection.CharSet=utf-8
+#spring.jpa.properties.hibernate.connection.useUnicode=true
