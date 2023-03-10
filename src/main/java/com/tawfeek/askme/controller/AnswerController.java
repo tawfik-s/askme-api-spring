@@ -4,6 +4,7 @@ import com.tawfeek.askme.model.answer.AnswerRequestDTO;
 import com.tawfeek.askme.model.answer.AnswerResponseDTO;
 import com.tawfeek.askme.model.questionAndAnswer.QuestionAndAnswerDTO;
 import com.tawfeek.askme.service.AnswerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class AnswerController {
     }
 
     @PostMapping
-    public ResponseEntity<AnswerResponseDTO> answerQuestion(@RequestBody AnswerRequestDTO answerRequest) {
+    public ResponseEntity<AnswerResponseDTO> answerQuestion(@Valid @RequestBody AnswerRequestDTO answerRequest) {
         AnswerResponseDTO answerResponse = answerService.AnswerQuestion(answerRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(answerResponse);
     }
