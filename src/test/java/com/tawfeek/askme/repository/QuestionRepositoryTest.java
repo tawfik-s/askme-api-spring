@@ -58,21 +58,21 @@ class QuestionRepositoryTest {
     }
 
     @Test
-    void findByRecipient() {
+    void shouldReturnQuestionsAskedForRecipient() {
         List<Question> res = questionRepository.findByRecipient(userRec).get();
         assertThat(res.size()).isEqualTo(1);
         assertThat(res.get(0).getRecipient()).isEqualTo(userRec);
     }
 
     @Test
-    void findBySender() {
+    void shouldReturnQuestionsAskedBySomeOne() {
         List<Question> res = questionRepository.findBySender(userSend).get();
         assertThat(res.size()).isEqualTo(1);
         assertThat(res.get(0).getRecipient()).isEqualTo(userRec);
     }
 
     @Test
-    void findUnAnsweredQuestion(){
+    void shouldReturnUnAnsweredQuestions(){
         List<Question> res = questionRepository.findUnAnsweredQuestions(userRec.getId()).get();
         assertThat(res.size()).isEqualTo(1);
         assertThat(res.get(0).getRecipient()).isEqualTo(userRec);

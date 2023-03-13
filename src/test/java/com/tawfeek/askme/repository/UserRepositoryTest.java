@@ -24,7 +24,7 @@ class UserRepositoryTest {
         userRepository.deleteAll();
     }
     @Test
-    void findByUserName() {
+    void shouldReturnUserByName() {
         User user=new User();
         user.setEmail("t.shalash1@gmail.com");
         user.setPassword("1234");

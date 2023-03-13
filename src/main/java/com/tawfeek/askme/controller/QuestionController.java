@@ -3,6 +3,7 @@ package com.tawfeek.askme.controller;
 import com.tawfeek.askme.model.question.QuestionRequestDTO;
 import com.tawfeek.askme.model.question.QuestionResponseDTO;
 import com.tawfeek.askme.service.QuestionService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class QuestionController {
     }
 
     @PostMapping
-    public ResponseEntity<QuestionResponseDTO> askUserQuestion(@RequestBody QuestionRequestDTO questionRequest) {
+    public ResponseEntity<QuestionResponseDTO> askUserQuestion(@Valid @RequestBody QuestionRequestDTO questionRequest) {
         QuestionResponseDTO questionResponse = questionService.AskUserQuestion(questionRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(questionResponse);
     }

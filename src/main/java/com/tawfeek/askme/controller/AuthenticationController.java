@@ -4,6 +4,7 @@ import com.tawfeek.askme.model.auth.AuthenticationResponse;
 import com.tawfeek.askme.model.user.UserRequestDTO;
 import com.tawfeek.askme.model.auth.AuthenticationRequest;
 import com.tawfeek.askme.service.AuthenticationService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,13 +21,13 @@ public class AuthenticationController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody UserRequestDTO request) {
+    public ResponseEntity<AuthenticationResponse> register(@Valid @RequestBody UserRequestDTO request) {
         AuthenticationResponse response = authenticationService.register(request);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@Valid @RequestBody AuthenticationRequest request) {
         AuthenticationResponse response = authenticationService.authenticate(request);
         return ResponseEntity.ok(response);
     }

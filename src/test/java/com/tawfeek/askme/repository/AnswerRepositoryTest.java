@@ -54,21 +54,21 @@ class AnswerRepositoryTest {
     }
 
     @Test
-    void findByQuestion() {
+    void findByQuestionShouldReturnQuestionAnswers() {
         List<Answer> answers = answerRepository.findByQuestion(question)
                 .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }
 
     @Test
-    void findByAnswerOwner() {
+    void findByAnswerOwnerShouldReturnAnswersByOwner() {
         List<Answer> answers = answerRepository.findByAnswerOwner(userRec)
                 .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);
     }
 
     @Test
-    void getUserAnsweredQuestions(){
+    void getUserAnsweredQuestionsShouldReturnUserAnsweredQuestions(){
         List<Answer> answers = answerRepository.getUserAnsweredQuestions(userRec.getId())
                 .orElseThrow();
         assertThat(answers.size()).isEqualTo(1);

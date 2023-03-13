@@ -30,10 +30,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
   private final AuthenticationManager authenticationManager;
 
+  private final PasswordEncoder passwordEncoder;
 
 
   public AuthenticationResponse register(UserRequestDTO request) {
     var user = userMapper.toEntity(request);
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     userRepository.save(user);
     var jwtToken = jwtService.generateToken(user);
     return AuthenticationResponse.builder()
