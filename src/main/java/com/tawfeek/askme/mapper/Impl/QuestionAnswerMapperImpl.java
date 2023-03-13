@@ -18,6 +18,7 @@ public class QuestionAnswerMapperImpl implements QuestionAnswerMapper {
         questionAndAnswerDTO.setAnswerText(questionAnswer.getAnswerText());
         if(Boolean.FALSE.equals(questionAnswer.getQuestion().getAnonymity()))
              questionAndAnswerDTO.setSender(userMapper.toDTO(questionAnswer.getQuestion().getSender()));
+        questionAndAnswerDTO.setAnswerTime(questionAnswer.getCreatedAt());
         questionAndAnswerDTO.setQuestionId(questionAnswer.getQuestion().getId());
         return questionAndAnswerDTO;
     }

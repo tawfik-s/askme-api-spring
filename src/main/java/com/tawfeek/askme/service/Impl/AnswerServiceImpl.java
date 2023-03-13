@@ -77,7 +77,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public AnswerResponseDTO DeleteQuestionAnswer(Long answerId) throws RecordNotFoundException {
+    public void DeleteQuestionAnswer(Long answerId) throws RecordNotFoundException {
         var principal =(UserDetails) SecurityContextHolder
                 .getContext().getAuthentication()
                 .getPrincipal();
@@ -88,7 +88,7 @@ public class AnswerServiceImpl implements AnswerService {
         if(answer.getAnswerOwner().getId()!= currentUser.getId())
             throw new RecordNotFoundException("you don't own this message");
 
+
         answerRepository.delete(answer);
-        return answerMapper.toDTO(answer);
     }
 }

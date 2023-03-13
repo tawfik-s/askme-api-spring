@@ -25,12 +25,9 @@ public class Question {
     @JoinColumn(name = "recipient_id")
     private User recipient;
 
-    @Column(nullable = false)
     private String questionText;
 
-    @Column(nullable = false)
     private Boolean anonymity;
 
-    @Column(nullable = false)
     private LocalDateTime createdAt;
 }

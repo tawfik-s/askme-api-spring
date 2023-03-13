@@ -14,5 +14,5 @@ public interface AnswerService {
 
     AnswerResponseDTO AnswerQuestion(AnswerRequestDTO answerRequest);
 
-    AnswerResponseDTO DeleteQuestionAnswer(Long answerId);
+    void DeleteQuestionAnswer(Long answerId);
 }

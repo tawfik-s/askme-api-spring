@@ -40,9 +40,9 @@ public class AnswerController {
     }
 
     @DeleteMapping("/{answerId}")
-    public ResponseEntity<AnswerResponseDTO> deleteQuestionAnswer(@PathVariable Long answerId) {
-        AnswerResponseDTO deletedAnswer = answerService.DeleteQuestionAnswer(answerId);
-        return ResponseEntity.ok(deletedAnswer);
+    public ResponseEntity<String> deleteQuestionAnswer(@PathVariable Long answerId) {
+         answerService.DeleteQuestionAnswer(answerId);
+        return ResponseEntity.ok(new String("delete done"));
     }
 }
 

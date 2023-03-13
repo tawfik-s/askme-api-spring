@@ -18,18 +18,16 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "question_id")
     private Question question;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "answer_owner_id")
     private User answerOwner;
 
-    @Column(nullable = false)
     private String answerText;
 
-    @Column(nullable = false)
     private LocalDateTime createdAt;
 
 }

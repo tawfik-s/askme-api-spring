@@ -31,7 +31,7 @@ public class QuestionMapperImpl implements QuestionMapper {
         var questionResponse = new QuestionResponseDTO();
         questionResponse.setQuestionText(question.getQuestionText());
         questionResponse.setId(question.getId());
-        questionResponse.setSender(userMapper.toDTO(question.getSender()));
-        return null;
+        questionResponse.setCreatedAt(question.getCreatedAt());
+        return questionResponse;
     }
 }

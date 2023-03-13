@@ -16,5 +16,5 @@ public class QuestionRequestDTO {
     private String questionText;
 
     @NotNull
-    private Boolean anonymity;
+    private boolean anonymity;
 }

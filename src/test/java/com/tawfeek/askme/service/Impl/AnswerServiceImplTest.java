@@ -148,10 +148,9 @@ class AnswerServiceImplTest {
         when(answerMapper.toDTO(answer)).thenReturn(new AnswerResponseDTO());
 
         // Act
-        AnswerResponseDTO result = answerService.DeleteQuestionAnswer(answerId);
+        answerService.DeleteQuestionAnswer(answerId);
 
         // Assert
-        assertThat(result).isNotNull();
         verify(userRepository).findByEmail(anyString());
         verify(answerRepository).findById(answerId);
         verify(answerRepository).delete(answer);
