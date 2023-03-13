@@ -54,7 +54,6 @@ class QuestionServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should return list of un-answered questions")
     void shouldReturnListOfUnansweredQuestions() {
         // given
         var user = new User(1L, "test", "password", Role.USER, "test@test.com");
@@ -82,7 +81,6 @@ class QuestionServiceImplTest {
     }
 
     @Test
-    @DisplayName("should add question and return question response")
     void shouldAddQuestion(){
         // given
         var user = new User(1L, "test", "password", Role.USER, "test@test.com");

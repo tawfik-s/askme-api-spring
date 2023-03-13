@@ -50,7 +50,7 @@ class UserServiceImplTest {
         MockitoAnnotations.openMocks(this);
     }
     @Test
-    void getUser() {
+    void shouldGetUser() {
         var user=new User(1L,"tawfeek","123456", Role.USER,"t.shalash1@gmail.com");
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         when(userMapper.toDTO(user)).thenReturn(new UserResponseDTO(1L,"tawfeek","t.shalash1@gmail.com"));
@@ -62,7 +62,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findUsersByName() {
+    void shouldGetUserByName() {
         var user1=new User(1L,"tawfeek","123456", Role.USER,"t.shalash1@gmail.com");
         var user2=new User(2L,"tawfeek","123456", Role.USER,"t.shalash1@gmail.com");
         List<User> arr1=new ArrayList<>();
@@ -78,7 +78,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findUserByEmail() {
+    void shouldGetUserByEmail() {
         var user=new User(1L,"tawfeek","123456", Role.USER,"t.shalash1@gmail.com");
         when(userRepository.findByEmail("t.shalash1@gmail.com")).thenReturn(Optional.of(user));
         when(userMapper.toDTO(user)).thenReturn(new UserResponseDTO(1L,"tawfeek","t.shalash1@gmail.com"));

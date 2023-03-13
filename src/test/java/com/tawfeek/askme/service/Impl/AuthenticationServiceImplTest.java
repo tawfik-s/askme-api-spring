@@ -48,7 +48,7 @@ class AuthenticationServiceImplTest {
         MockitoAnnotations.openMocks(this);
     }
     @Test
-    void register() {
+    void shouldRegisterNewUser() {
         var user=new User(1l,"tawfeek shalash","123456", Role.USER,"t.shalash1@gmail.com");
         var userRequestDTO=new UserRequestDTO("tawfeek shalash","123456","t.shalash1@gmail.com");
         when(jwtService.generateToken(user)).thenReturn("token");
@@ -63,7 +63,7 @@ class AuthenticationServiceImplTest {
     }
 
     @Test
-    void authenticate() {
+    void shouldAuthenticateNewUser() {
         var user=new User(1l,"tawfeek shalash","123456", Role.USER,"t.shalash1@gmail.com");
         when(userRepository.findByEmail("t.shalash1@gmail.com")).thenReturn(Optional.of(user));
         when(jwtService.generateToken(user)).thenReturn("token");

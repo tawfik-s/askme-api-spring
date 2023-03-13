@@ -62,7 +62,7 @@ class AnswerServiceImplTest {
     }
 
     @Test
-    void getUserAnsweredQuestions() {
+    void shouldReturnAnsweredQuestionByUser() {
         Long userId = 1L;
         User currentUser = new User();
         currentUser.setId(userId);
@@ -80,7 +80,7 @@ class AnswerServiceImplTest {
     }
 
     @Test
-    void getMyAnsweredQuestions() {
+    void shouldReturnUserAnsweredQuestions() {
         User currentUser = new User(1L, "tawfeek", "123456", Role.USER, "test@test.com");
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken(currentUser, "password", currentUser.getAuthorities()));
@@ -99,7 +99,7 @@ class AnswerServiceImplTest {
     }
 
     @Test
-    void answerQuestion() {
+    void shouldAddAnswerToQuestion() {
         AnswerRequestDTO answerRequest = new AnswerRequestDTO();
         answerRequest.setQuestionId(1L);
         answerRequest.setAnswerText("Test answer");
