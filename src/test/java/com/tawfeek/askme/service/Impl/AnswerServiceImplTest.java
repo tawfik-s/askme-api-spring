@@ -145,7 +145,6 @@ class AnswerServiceImplTest {
 
         when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(user));
         when(answerRepository.findById(answerId)).thenReturn(Optional.of(answer));
-        when(answerMapper.toDTO(answer)).thenReturn(new AnswerResponseDTO());
 
         // Act
         answerService.DeleteQuestionAnswer(answerId);
@@ -154,7 +153,6 @@ class AnswerServiceImplTest {
         verify(userRepository).findByEmail(anyString());
         verify(answerRepository).findById(answerId);
         verify(answerRepository).delete(answer);
-        verify(answerMapper).toDTO(answer);
     }
 
     @Test

@@ -66,10 +66,8 @@ class QuestionServiceImplTest {
         questions.add(question2);
 
         when(questionRepository.findUnAnsweredQuestions(user.getId())).thenReturn(Optional.of(questions));
-        when(questionMapper.toDTO(question1)).thenReturn(new QuestionResponseDTO(question1.getId(),question1.getQuestionText(),
-                new UserResponseDTO(question1.getSender().getId(),question1.getSender().getUsername(),question1.getSender().getEmail())));
-        when(questionMapper.toDTO(question2)).thenReturn(new QuestionResponseDTO(question2.getId(), question2.getQuestionText()
-                ,new UserResponseDTO(question1.getSender().getId(),question1.getSender().getUsername(),question1.getSender().getEmail())));
+        when(questionMapper.toDTO(question1)).thenReturn(new QuestionResponseDTO(question1.getId(),question1.getQuestionText(), LocalDateTime.now()));
+        when(questionMapper.toDTO(question2)).thenReturn(new QuestionResponseDTO(question2.getId(), question2.getQuestionText(),LocalDateTime.now()));
 
         // when
         List<QuestionResponseDTO> result = questionService.getMyUnAnsweredQuestions();
@@ -92,7 +90,7 @@ class QuestionServiceImplTest {
         questions.add(question1);
 
         when(questionMapper.toDTO(question1)).thenReturn(new QuestionResponseDTO(question1.getId(),question1.getQuestionText(),
-                new UserResponseDTO(question1.getSender().getId(),question1.getSender().getUsername(),question1.getSender().getEmail())));
+                LocalDateTime.now()));
         QuestionRequestDTO questionRequestDTO=new QuestionRequestDTO(2L,"hello my friend",false);
         when(questionMapper.toEntity(questionRequestDTO,recipient,user)).thenReturn(question1);
         // when
