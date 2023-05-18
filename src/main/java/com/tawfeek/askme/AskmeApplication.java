@@ -24,4 +24,5 @@ public class AskmeApplication {
 		SpringApplication.run(AskmeApplication.class, args);
 	}
 
+
 }

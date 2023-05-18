@@ -5,9 +5,10 @@ jwt_secret: REPLACE_THIS_WITH_YOUR_SECRET
 #postgres config
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/askme
+    url: jdbc:postgresql://dpg-chj56ke4dad01ajnopa0-a.frankfurt-postgres.render.com:5432/askme_api_database
     username: admin
-    password: admin
+    password: s9oyazcDMsUgdyX0VJOOrvhJBBMCt8lr
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: create
