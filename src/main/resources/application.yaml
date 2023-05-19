@@ -5,6 +5,11 @@ jwt_secret: oIhbd+QIyZnylJiHfnjjXcnHGXMicUqu9+no8qHAyXw=
 #postgres config
 
 spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
   datasource:
     url: jdbc:postgresql://dpg-chj56ke4dad01ajnopa0-a.frankfurt-postgres.render.com:5432/askme_api_database
     username: admin
@@ -18,6 +23,15 @@ spring:
       hibernate:
         format_sql: true
 
+
+
+server:
+  port: 8080
+  shutdown: graceful # see https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-graceful-shutdown
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json,image/svg+xml
+    min-response-size: 1024
 # JPA settings
 #spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
 #spring.jpa.hibernate.use-new-id-generator-mappings=false
