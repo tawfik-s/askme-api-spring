@@ -13,4 +13,5 @@ public interface UserService {
 
     public UserResponseDTO findUserByEmail(String email);
 
+    public List<UserResponseDTO> getAllUsers();
 }

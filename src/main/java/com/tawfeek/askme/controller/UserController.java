@@ -28,6 +28,11 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers(){
+        return ResponseEntity.ok(userService.getAllUsers());
+    }
+
     @GetMapping("/email")
     public ResponseEntity<UserResponseDTO> findUserByEmail(@RequestParam String email) {
         UserResponseDTO user = userService.findUserByEmail(email);

@@ -10,6 +10,7 @@ import com.tawfeek.askme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,5 +39,10 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO findUserByEmail(String email) {
         User user = userRepository.findByEmail(email).orElseThrow(RecordNotFoundException::new);
         return userMapper.toDTO(user);
+    }
+
+    @Override
+    public List<UserResponseDTO> getAllUsers(){
+        return userRepository.findAll().stream().map(user -> userMapper.toDTO(user)).toList();
     }
 }

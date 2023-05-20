@@ -34,6 +34,10 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
 
+    public String getActualName(){
+        return this.userName;
+    }
+
     public User(String userName, String password, Role role, String email) {
         this.userName = userName;
         this.password = password;
