@@ -27,10 +27,12 @@ public class ApplicationConfig implements WebMvcConfigurer {
     }
     @Autowired
     private UserRepository userRepository;
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)

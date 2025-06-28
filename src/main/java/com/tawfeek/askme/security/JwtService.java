@@ -16,7 +16,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-public class JwtService {
+public class
+
+
+JwtService {
 
   @Value("${jwt_secret}")
   private String SECRET_KEY;
@@ -74,4 +77,5 @@ public class JwtService {
     byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
     return Keys.hmacShaKeyFor(keyBytes);
   }
+
 }

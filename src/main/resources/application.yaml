@@ -4,17 +4,21 @@ jwt_secret: oIhbd+QIyZnylJiHfnjjXcnHGXMicUqu9+no8qHAyXw=
 
 #postgres config
 
+
+
 spring:
+  aop:
+    proxy-target-class: true
   devtools:
     restart:
       enabled: false
     livereload:
       enabled: false
   datasource:
-    url: jdbc:postgresql://dpg-chj56ke4dad01ajnopa0-a.frankfurt-postgres.render.com:5432/askme_api_database
-    username: admin
-    password: s9oyazcDMsUgdyX0VJOOrvhJBBMCt8lr
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/askfm
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -23,6 +27,9 @@ spring:
       hibernate:
         format_sql: true
 
+logging:
+  level:
+    com.tawfeek.askme: DEBUG
 
 
 server:
